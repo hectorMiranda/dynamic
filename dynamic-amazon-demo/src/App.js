@@ -1,8 +1,8 @@
 import React from 'react';
 import { DynamicContextProvider, DynamicWidget, useDynamicContext } from '@dynamic-labs/sdk-react-core';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import WalletIntegration from './components/WalletIntegration'; 
-import 'react-tabs/style/react-tabs.css';
+import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';  
+import WalletIntegration from './components/WalletIntegration';
+import 'react-tabs/style/react-tabs.css';  
 import './App.css';
 
 const Header = () => {
@@ -27,7 +27,8 @@ const App = () => {
   return (
     <DynamicContextProvider
       settings={{
-        environmentId: process.env.REACT_APP_ENVIRONMENT_ID      }}>
+        environmentId: process.env.REACT_APP_ENVIRONMENT_ID
+      }}>
       <div className="App">
         <Header />
 
@@ -53,14 +54,12 @@ const App = () => {
 
           <TabPanel>
             <div className="widget-container tab-content">
-              <h2>Dynamic Widget</h2>
               <DynamicWidget />
             </div>
           </TabPanel>
 
           <TabPanel>
             <div className="tab-content">
-              <h2>Wallet Integration</h2>
               <WalletIntegration />
             </div>
           </TabPanel>
@@ -68,11 +67,6 @@ const App = () => {
           <TabPanel>
             <div className="tab-content">
               <h2>Code Snippets</h2>
-              <pre>
-                <code>
-                  
-                </code>
-              </pre>
             </div>
           </TabPanel>
         </Tabs>
