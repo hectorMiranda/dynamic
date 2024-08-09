@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DynamicContextProvider, DynamicWidget, useDynamicContext } from '@dynamic-labs/sdk-react-core';
-import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';  
+import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import WalletIntegration from './components/WalletIntegration';
-import 'react-tabs/style/react-tabs.css';  
+import 'react-tabs/style/react-tabs.css';
 import './App.css';
 
 const Header = () => {
@@ -27,7 +28,8 @@ const App = () => {
   return (
     <DynamicContextProvider
       settings={{
-        environmentId: process.env.REACT_APP_ENVIRONMENT_ID
+        environmentId: process.env.REACT_APP_ENVIRONMENT_ID,
+        walletConnectors: [EthereumWalletConnectors],
       }}>
       <div className="App">
         <Header />
