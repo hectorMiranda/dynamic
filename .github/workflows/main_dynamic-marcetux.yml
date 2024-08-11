@@ -45,6 +45,9 @@ jobs:
           zip -r ../release.zip .
         working-directory: ./dynamic-amazon-demo
 
+      - name: Verify artifact exists
+        run: ls -la release.zip
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -73,8 +76,11 @@ jobs:
         uses: azure/appservice-settings@v1
         with:
           app-name: 'dynamic-marcetux'
-          settings: |
-            SCM_DO_BUILD_DURING_DEPLOYMENT=true
+          app-settings-json: |
+            {
+              "SCM_DO_BUILD_DURING_DEPLOYMENT": "true"
+            }
+          mask-inputs: true
 
       - name: Login to Azure
         uses: azure/login@v2
