@@ -72,6 +72,13 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6D508196FA1243D39E501CCB13BB7D6D }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E76CE63D57D84B89A103DCD39A8BA3B9 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_64392EE8EE4D4527B24F3AF63C708EF9 }}
+
       - name: Set SCM_DO_BUILD_DURING_DEPLOYMENT
         run: |
           az webapp config appsettings set --name dynamic-marcetux --resource-group dynamic --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true --debug
@@ -80,13 +87,6 @@ jobs:
           AZURE_TENANT_ID: ${{ secrets.AZUREAPPSERVICE_TENANTID_E76CE63D57D84B89A103DCD39A8BA3B9 }}
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_64392EE8EE4D4527B24F3AF63C708EF9 }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZUREAPPSERVICE_CLIENTSECRET }}
-
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6D508196FA1243D39E501CCB13BB7D6D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E76CE63D57D84B89A103DCD39A8BA3B9 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_64392EE8EE4D4527B24F3AF63C708EF9 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
