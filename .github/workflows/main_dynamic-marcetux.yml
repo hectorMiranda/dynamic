@@ -25,8 +25,8 @@ jobs:
         run: npm install --legacy-peer-deps
         working-directory: ./dynamic-amazon-demo
 
-      - name: Fix vulnerabilities
-        run: npm audit fix --force
+      - name: Attempt non-breaking vulnerability fixes
+        run: npm audit fix || true
         working-directory: ./dynamic-amazon-demo
 
       - name: Build project
