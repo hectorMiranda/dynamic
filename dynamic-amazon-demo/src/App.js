@@ -2,6 +2,7 @@ import { DynamicContextProvider, DynamicWidget, useDynamicContext } from '@dynam
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import WalletIntegration from './components/WalletIntegration';
+import NFTMinting from './components/NFTMinting';
 import 'react-tabs/style/react-tabs.css';
 import './App.css';
 
@@ -67,7 +68,7 @@ const App = () => {
 
           <TabPanel>
             <div className="tab-content">
-              <h2>Code Snippets</h2>
+              <NFTMinting />
             </div>
           </TabPanel>
         </Tabs>
