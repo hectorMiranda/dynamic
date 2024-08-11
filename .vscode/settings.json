@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/4edffc09-a2b9-4192-b78f-d041b12a345c/resourceGroups/dynamic/providers/Microsoft.Web/sites/dynamic-marcetux",
+    "appService.deploySubpath": "dynamic-amazon-demo"
+}

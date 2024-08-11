@@ -3,6 +3,11 @@
 
 Welcome to the Dynamic Integration Demo App for Amazon.xyz! This guide is designed to help you get started with integrating Dynamic's embedded wallet, minting NFTs, and addressing common challenges your team might face. Whether you're new to React/JS or exploring account abstraction for the first time, this README will guide you through the process.
 
+### **Live Demo**
+
+A live version of this app available! You can check it out here: [Live Demo App](https://dynamic-marcetux-cpfaadggdaaecfaw.westus-01.azurewebsites.net/). Feel free to explore and see the features in action, this application should also work as our sandbox to prototype potential solutions and provide examples on how to integrate with Dynamic.
+
+
 ## Getting Started
 
 ### Prerequisites
