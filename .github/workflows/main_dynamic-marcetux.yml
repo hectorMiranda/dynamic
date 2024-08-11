@@ -73,14 +73,13 @@ jobs:
         run: unzip release.zip
 
       - name: Set SCM_DO_BUILD_DURING_DEPLOYMENT
-        uses: azure/appservice-settings@v1
-        with:
-          app-name: 'dynamic-marcetux'
-          app-settings-json: |
-            {
-              "SCM_DO_BUILD_DURING_DEPLOYMENT": "true"
-            }
-          mask-inputs: true
+        run: |
+          az webapp config appsettings set --name dynamic-marcetux --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true --debug
+        env:
+          AZURE_CLIENT_ID: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6D508196FA1243D39E501CCB13BB7D6D }}
+          AZURE_TENANT_ID: ${{ secrets.AZUREAPPSERVICE_TENANTID_E76CE63D57D84B89A103DCD39A8BA3B9 }}
+          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_64392EE8EE4D4527B24F3AF63C708EF9 }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZUREAPPSERVICE_CLIENTSECRET }}
 
       - name: Login to Azure
         uses: azure/login@v2
