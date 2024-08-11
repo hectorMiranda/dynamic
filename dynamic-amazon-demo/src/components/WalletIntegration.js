@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useDynamicContext } from '@dynamic-labs/sdk-react-core';
 import './WalletIntegration.css';
 import { parseEther } from 'viem';
@@ -13,16 +13,20 @@ const WalletIntegration = () => {
   const [amountToSend, setAmountToSend] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Fetch wallet details
-  const fetchWalletDetails = async () => {
+  const fetchWalletDetails = useCallback(async () => {
     if (primaryWallet) {
       const balance = await primaryWallet.connector.getBalance();
       setBalance(balance);
       setWalletAddress(primaryWallet.address);
     }
-  };
+  }, [primaryWallet]);
 
-  // Send transaction
+  useEffect(() => {
+    if (isAuthenticated && primaryWallet) {
+      fetchWalletDetails();
+    }
+  }, [primaryWallet, isAuthenticated, fetchWalletDetails]);
+
   const sendTransaction = async () => {
     if (!recipientAddress || !amountToSend) {
       setErrorMessage("Please fill all fields correctly.");
@@ -46,12 +50,6 @@ const WalletIntegration = () => {
       setErrorMessage(`Transaction failed: ${error.message}`);
     }
   };
-
-  useEffect(() => {
-    if (isAuthenticated && primaryWallet) {
-      fetchWalletDetails();
-    }
-  }, [primaryWallet, isAuthenticated]);
 
   return (
     <div className="wallet-container">
