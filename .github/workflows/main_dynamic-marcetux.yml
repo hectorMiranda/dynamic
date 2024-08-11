@@ -74,7 +74,7 @@ jobs:
 
       - name: Set SCM_DO_BUILD_DURING_DEPLOYMENT
         run: |
-          az webapp config appsettings set --name dynamic-marcetux --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true --debug
+          az webapp config appsettings set --name dynamic-marcetux --resource-group dynamic --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true --debug
         env:
           AZURE_CLIENT_ID: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6D508196FA1243D39E501CCB13BB7D6D }}
           AZURE_TENANT_ID: ${{ secrets.AZUREAPPSERVICE_TENANTID_E76CE63D57D84B89A103DCD39A8BA3B9 }}
