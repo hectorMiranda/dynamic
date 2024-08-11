@@ -32,7 +32,7 @@ jobs:
 
       - name: Build project with increased memory limit
         run: |
-          export NODE_OPTIONS="--max-old-space-size=4096"
+          export NODE_OPTIONS="--max-old-space-size=8192"
           npm run build --if-present
         working-directory: ./dynamic-amazon-demo
 
