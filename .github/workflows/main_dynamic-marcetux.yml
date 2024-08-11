@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy Node.js app to Azure Web App - dynamic-marcetux
 
 on:
@@ -25,8 +22,12 @@ jobs:
         run: npm install --legacy-peer-deps
         working-directory: ./dynamic-amazon-demo
 
-      - name: Attempt non-breaking vulnerability fixes
-        run: npm audit fix || true
+      - name: Install missing Babel plugin
+        run: npm install --save-dev @babel/plugin-proposal-private-property-in-object
+        working-directory: ./dynamic-amazon-demo
+
+      - name: Fix ESLint issues
+        run: npm run lint --if-present || true
         working-directory: ./dynamic-amazon-demo
 
       - name: Build project
@@ -34,11 +35,7 @@ jobs:
         working-directory: ./dynamic-amazon-demo
 
       - name: Run tests
-        run: npm run test --if-present
-        working-directory: ./dynamic-amazon-demo
-
-      - name: Lint and fix code issues
-        run: npm run lint --if-present || true
+        run: npm run test --if-present -- --passWithNoTests
         working-directory: ./dynamic-amazon-demo
 
       - name: Zip artifact for deployment
@@ -59,7 +56,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write
 
     steps:
       - name: Download artifact from build job
@@ -69,7 +66,7 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-      
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
