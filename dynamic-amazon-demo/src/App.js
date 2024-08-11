@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { DynamicContextProvider, DynamicWidget, useDynamicContext } from '@dynamic-labs/sdk-react-core';
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
