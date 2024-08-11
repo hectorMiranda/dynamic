@@ -88,6 +88,9 @@ jobs:
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_64392EE8EE4D4527B24F3AF63C708EF9 }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZUREAPPSERVICE_CLIENTSECRET }}
 
+      - name: Wait before deployment
+        run: sleep 90s
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
