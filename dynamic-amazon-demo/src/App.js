@@ -3,7 +3,7 @@ import { DynamicContextProvider, DynamicWidget, useDynamicContext } from '@dynam
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import WalletIntegration from './components/WalletIntegration';
-import NFTMinting from './components/NFTMinting';
+// import NFTMinting from './components/NFTMinting';
 import NFTGating from './components/NFTGating';
 import HomeTab from './components/Home';
 import 'react-tabs/style/react-tabs.css';
