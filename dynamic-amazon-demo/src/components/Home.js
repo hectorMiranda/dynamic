@@ -47,10 +47,22 @@ const HomeTab = () => {
             <p>React Resources</p>
           </a>
         </div>
+        <div className="grid-item">
+          <a href="https://github.com/hectorMiranda/dynamic/blob/main/docs/dynamic_authentication.md" target="_blank" rel="noopener noreferrer">
+            <span role="img" aria-label="auth">🔐</span>
+            <p>Dynamic Authentication</p>
+          </a>
+        </div>
+        <div className="grid-item">
+          <a href="https://github.com/hectorMiranda/dynamic/blob/main/docs/php_integration.md" target="_blank" rel="noopener noreferrer">
+            <span role="img" aria-label="php">🐘</span>
+            <p>PHP Integration Guide</p>
+          </a>
+        </div>
       </div>
 
       <p className="footer-note">
-        Need help? Check out the <a href="https://github.com/hectorMiranda/dynamic">GitHub Repository</a> for more information or contact the Dynamic team for support. 
+        Need help? Check out the <a href="https://github.com/hectorMiranda/dynamic">GitHub Repository</a> for more information. 
       </p>
     </div>
   );

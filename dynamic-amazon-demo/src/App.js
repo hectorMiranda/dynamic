@@ -41,7 +41,7 @@ const App = () => {
           <TabList>
             <Tab>Home</Tab>
             <Tab>Wallet Integration</Tab>
-            <Tab>Code Snippets</Tab>
+            <Tab>NFTs</Tab>
           </TabList>
 
           <TabPanel>
